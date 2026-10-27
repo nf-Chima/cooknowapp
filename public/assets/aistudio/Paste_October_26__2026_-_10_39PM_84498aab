@@ -1,0 +1,1203 @@
+# MASTER BUILD PROMPT: COOKNOW BUSINESS MANAGEMENT SYSTEM
+## Interactive Business Software Prototype for FENUCS GROUP LTD
+
+### 1. YOUR ROLE AND EXPECTED STANDARD
+
+Act as a senior full-stack software engineer, software architect, UI/UX designer, database designer, quality assurance engineer, and product strategist.
+
+You are responsible for designing, implementing, testing, and delivering a polished, functional, interactive web application prototype for a prospective client.
+
+Do not merely explain how to build it. Build the application.
+
+Do not stop at wireframes, screenshots, a static dashboard, a written plan, pseudocode, or disconnected code snippets. Deliver a coherent application that can be run and demonstrated to a non-technical business customer.
+
+Use your available coding environment, file-generation capabilities, terminal, preview, and testing tools where supported. If you cannot run code or create downloadable files, clearly state that limitation and provide the complete project files in an organised, usable format.
+
+Work autonomously using sensible defaults where requirements are unspecified. Do not ask unnecessary questions before beginning. Where a requirement is ambiguous, implement a clearly labelled, reasonable prototype behaviour and document the assumption.
+
+---
+
+### 2. PROJECT AND BUSINESS CONTEXT
+
+Company building the solution: FENUCS GROUP LTD.
+
+Client: Cooknow.
+
+Product name: Cooknow Business Management System.
+
+Product type: Responsive browser-based business management application with an integrated ticketing module.
+
+Business objective:
+
+Develop a convincing, interactive prototype demonstrating how Cooknow could manage its inventory, suppliers, customers, transactions, receipts, waybills, deliveries, and customer or internal operational issues through one organised platform.
+
+The prototype will be demonstrated to Cooknow's decision-makers to validate workflows, collect feedback, and support discussion of the proposed software project.
+
+The prototype is not yet the production system. It must look and behave convincingly while remaining honest about simulated functionality, unimplemented integrations, and the limitations of sample data.
+
+The original proposed delivery timeframe for the eventual production project is eight weeks, subject to final requirements, customer feedback, integration complexity, and agreement on scope.
+
+The prototype must not claim that the complete production system has already been delivered.
+
+### 3. PRIMARY SUCCESS CRITERIA
+
+A successful delivery must:
+
+1. Look like a professionally designed commercial business application.
+2. Have a polished dashboard and consistent navigation.
+3. Include all seven principal application areas.
+4. Have meaningful working interactions, not just decorative buttons.
+5. Share data between modules so changes in one area are reflected in related areas.
+6. Demonstrate the inventory-to-transaction-to-receipt workflow.
+7. Demonstrate waybill validation and discrepancy alerts.
+8. Demonstrate ticket creation, assignment, prioritisation, and resolution.
+9. Provide useful sample reports and dashboard metrics derived from the demo data.
+10. Work on common desktop and mobile browser sizes.
+11. Include realistic fictional seed data.
+12. Persist demo changes across page refreshes where the chosen architecture supports it.
+13. Include a clear reset-demo-data option.
+14. Avoid exposing real customer information, credentials, secrets, or live financial data.
+15. Include instructions for running and demonstrating the application.
+16. Deliver the actual project files or an accessible working preview, depending on the environment.
+
+Prioritise end-to-end functional coherence over the number of superficial features.
+
+---
+
+### 4. TECHNICAL APPROACH
+
+First inspect the capabilities of your environment.
+
+If you can create and run a conventional web project, use the following default stack unless your environment requires another supported approach:
+
+- Frontend: React with TypeScript.
+- Framework: Next.js or an equivalent supported React framework.
+- Styling: Tailwind CSS or a consistent modern CSS system.
+- Icons: Lucide or another established icon library.
+- Charts: Recharts or a comparable charting library.
+- Form validation: Zod or equivalent.
+- Persistence for the standalone prototype: localStorage or IndexedDB, with a clean data-access abstraction.
+- Testing: suitable unit and end-to-end tests where tooling is available.
+
+You may use a simpler stack if it produces a more reliable, genuinely runnable demonstration in your environment.
+
+Do not introduce unnecessary complexity, paid dependencies, external services, or infrastructure simply to make the architecture look sophisticated.
+
+#### Architecture principles
+
+Separate the application into clear components and modules.
+
+Use reusable UI components, consistent data models, centralised validation, and predictable state management.
+
+Separate business rules from presentation code.
+
+Use TypeScript types or equivalent data contracts for the main entities.
+
+Avoid duplicating business logic in multiple screens.
+
+Design the data model so a future production implementation can replace local prototype persistence with a secure backend and database without having to redesign every screen.
+
+Never put API keys, database service-role keys, passwords, or other secrets into frontend code.
+
+IMPORTANT: This is a demonstration prototype. Do not falsely claim that localStorage is a secure production database, that mock authentication provides real security, or that a local browser deployment supports multiple staff sharing live data.
+
+If a backend is supported and appropriate, it may be used, but document setup requirements and avoid making the demo depend on an unconfigured service.
+
+---
+
+### 5. BRAND AND VISUAL DESIGN
+
+Create a polished, modern interface appropriate for a serious business operations product.
+
+Brand name: COOKNOW.
+
+Product descriptor: Business Management System.
+
+Developed by: FENUCS GROUP LTD.
+
+Use a restrained, professional visual system with:
+
+- A dark navy or deep blue navigation sidebar.
+- White or light neutral content backgrounds.
+- Blue or teal primary actions.
+- Green for successful or completed states.
+- Amber for pending or warning states.
+- Red for errors, critical alerts, or overdue items.
+- Clear typography, generous spacing, and consistent component styling.
+- Modern data tables, status badges, cards, forms, charts, dialogs, and notification messages.
+- Consistent icons and visual hierarchy.
+- Accessible contrast and readable font sizes.
+- Thoughtful empty states and confirmation messages.
+- Responsive layouts for desktop, tablet, and mobile browsers.
+
+Do not overuse gradients, excessive animation, decorative elements, or oversized cards.
+
+The interface should feel like a real business product that Cooknow could plausibly use every day.
+
+#### Application shell
+
+Create a consistent application shell containing:
+
+- Sidebar navigation.
+- Header with current section.
+- Global search or a clearly scoped search control.
+- Notification area.
+- User profile menu.
+- Main content region.
+- Breadcrumbs where helpful.
+- Responsive sidebar or mobile navigation.
+
+Show the label:
+
+"DEMO ENVIRONMENT — SAMPLE DATA"
+
+This should remain visible enough that users do not mistake the prototype for a production application.
+
+Display the developer attribution in an appropriate location:
+
+"Built by FENUCS GROUP LTD"
+
+Use fictional sample business information. Do not invent Cooknow's real logo, legal details, address, or brand assets. Use a clean text-based logo treatment if no genuine asset is supplied.
+
+---
+
+### 6. REQUIRED NAVIGATION AND MODULES
+
+Implement these seven principal areas:
+
+1. Dashboard.
+2. Inventory.
+3. Customers.
+4. Transactions and Receipts.
+5. Waybills and Deliveries.
+6. Ticketing.
+7. Reports and Settings.
+
+Navigation must work. Every main navigation item must open its corresponding screen.
+
+Use coherent routes or a well-structured single-page navigation model.
+
+Do not leave menu items pointing to blank pages.
+
+If a secondary function is outside the current prototype scope, mark it clearly as planned or unavailable instead of presenting it as implemented.
+
+---
+
+### 7. DASHBOARD MODULE
+
+Create a management dashboard that displays live summary metrics calculated from the current demo data.
+
+Include KPI cards for:
+
+- Total inventory items or stock units, using a clearly defined counting rule.
+- Available stock.
+- Low-stock items.
+- Pending transactions.
+- Completed transactions.
+- Deliveries awaiting confirmation.
+- Open tickets.
+- High-priority or overdue tickets.
+
+Include suitable charts or summaries for:
+
+- Transaction activity over time.
+- Stock distribution by status or category.
+- Ticket distribution by status or priority.
+- Recent operational activity.
+
+Include useful quick actions:
+
+- Add stock.
+- Register customer.
+- Create transaction.
+- Record waybill.
+- Create ticket.
+
+Include recent activity showing events such as stock creation, transaction updates, waybill discrepancies, and ticket resolution.
+
+#### Dashboard correctness
+
+Metrics must be calculated from actual application state, not hardcoded numbers that never change.
+
+Creating a transaction should update relevant dashboard metrics.
+
+Changing a ticket status should update the open-ticket counts.
+
+Recording or correcting a waybill should update relevant delivery indicators.
+
+Charts must use the same underlying sample data as the tables and metrics.
+
+Avoid contradictory totals.
+
+Provide useful empty states when there is no data.
+
+---
+
+### 8. INVENTORY AND SUPPLIER MANAGEMENT
+
+Build a functional inventory module.
+
+#### Inventory list
+
+Display:
+
+- Unique stock reference.
+- Item name.
+- Category.
+- Quantity.
+- Unit of measure.
+- Supplier.
+- Purchase date.
+- Current status.
+- Last updated date.
+
+Include:
+
+- Search.
+- Filtering by category, supplier, and status.
+- Sorting.
+- Pagination or a sensible alternative.
+- View details.
+- Add item.
+- Edit item.
+- Stock movement history.
+
+#### Create and edit inventory
+
+Support:
+
+- Stock reference.
+- Item name.
+- Description.
+- Category.
+- Quantity.
+- Unit of measure.
+- Supplier.
+- Purchase price or unit cost where appropriate for the demo.
+- Purchase date.
+- Reorder threshold.
+- Notes.
+
+Validate required fields and numeric quantities.
+
+Generate unique stock references automatically when appropriate, while preventing duplicates.
+
+#### Stock movements
+
+Record movements such as:
+
+- Stock received.
+- Stock issued or sold.
+- Stock adjustment.
+- Return or reversal, where permitted.
+
+Every movement must create a traceable history record containing the item, movement type, quantity, date, and relevant transaction reference.
+
+Prevent negative stock unless an explicitly documented business rule permits it. For this prototype, default to preventing negative stock.
+
+Do not silently modify stock quantities without recording the reason.
+
+If a transaction is cancelled, implement a consistent reversal or restoration rule and prevent double-restoration.
+
+#### Suppliers
+
+Provide basic supplier management with:
+
+- Supplier name.
+- Contact person.
+- Phone.
+- Email.
+- Address.
+- Supplier reference.
+- Associated inventory items or purchase records.
+
+Use fictional supplier details.
+
+---
+
+### 9. CUSTOMER MANAGEMENT
+
+Create a customer directory and customer profile screen.
+
+Each customer should have:
+
+- Unique customer ID.
+- Name or business name.
+- Contact person, if applicable.
+- Phone number.
+- Email.
+- Address.
+- Date registered.
+- Notes.
+- Active or inactive status.
+
+Provide:
+
+- Search by name, phone, or customer ID.
+- Customer creation and editing.
+- Customer detail view.
+- Related transactions.
+- Related waybills and deliveries.
+- Related tickets.
+- Relevant activity history.
+
+When a customer is selected in a transaction or ticket form, use the customer record consistently.
+
+Do not create duplicate customer records accidentally when an existing customer is selected.
+
+Use fictional data only.
+
+---
+
+### 10. TRANSACTION MANAGEMENT
+
+Build a functional transaction workflow.
+
+Each transaction should contain:
+
+- Unique transaction reference.
+- Customer.
+- Transaction date.
+- Line items.
+- Quantities.
+- Unit prices where applicable.
+- Subtotal.
+- Discount, if supported.
+- Tax, if explicitly configured for the demo.
+- Total amount.
+- Payment status.
+- Transaction status.
+- Staff member or operator.
+- Notes.
+
+Use NGN formatting for sample monetary amounts.
+
+Do not invent tax rates or imply that demo tax calculations reflect Cooknow's actual tax obligations. If tax is displayed, make the rate configurable or label it as a demonstration setting.
+
+#### Transaction status
+
+Use a clear lifecycle such as:
+
+- Draft.
+- Pending.
+- Completed.
+- Cancelled.
+
+Define the transitions and their effects on inventory.
+
+For example, when a transaction is completed, the application should validate stock availability and record the appropriate stock movement.
+
+If a transaction is cancelled after stock was deducted, restore stock through a traceable reversal. Prevent duplicate reversals.
+
+#### Payment status
+
+Support demonstration statuses such as:
+
+- Unpaid.
+- Partially paid.
+- Paid.
+- Refunded, if the refund workflow is implemented.
+
+These statuses represent recorded information only. They do not prove that money has been transferred.
+
+Never mark a transaction as paid because a user merely clicked a button labelled "Verify payment" unless a real payment-provider verification mechanism is configured.
+
+Provide clear wording such as "Mark as paid — demo only" if the prototype simulates payment recording.
+
+Do not integrate live payment processing in the initial prototype.
+
+---
+
+### 11. RECEIPT GENERATION AND PRINTING
+
+Allow a user to generate a receipt from a transaction.
+
+The receipt should include:
+
+- Cooknow branding.
+- Receipt number.
+- Transaction reference.
+- Transaction date.
+- Customer details.
+- Items and quantities.
+- Relevant unit prices and totals.
+- Recorded payment status.
+- Staff member or operator.
+- A clear DEMO watermark or sample-data disclaimer.
+
+Provide a print button using browser printing and suitable print CSS.
+
+Make sure the printed receipt is readable and does not print the entire application sidebar.
+
+Do not describe a demo receipt as a legally compliant fiscal receipt unless the relevant requirements have been implemented and verified.
+
+---
+
+### 12. WAYBILL AND DELIVERY MANAGEMENT
+
+This is a high-priority module because Cooknow specifically requested alerts when an incorrect waybill is uploaded.
+
+Build a dedicated waybill and delivery management screen.
+
+Each record should contain:
+
+- Unique waybill record ID.
+- Waybill number.
+- Associated transaction reference.
+- Customer.
+- Delivery destination.
+- Relevant stock or line items.
+- Quantities.
+- Dispatch date.
+- Expected delivery date, where applicable.
+- Delivery status.
+- Uploaded file or demo attachment reference.
+- Recorded by.
+- Notes.
+- Validation status.
+- Discrepancy details.
+
+Suggested delivery statuses:
+
+- Draft.
+- Awaiting dispatch.
+- Dispatched.
+- In transit.
+- Delivered.
+- Delivery exception.
+- Cancelled.
+
+#### Waybill upload
+
+Allow users to select a sample document or attach a file if the environment supports it.
+
+At minimum, implement manual entry of the relevant waybill fields.
+
+If a file is attached, retain a safe reference to it within the prototype's supported storage constraints.
+
+Do not pretend that a document has been OCR-scanned or semantically understood when the prototype has not actually performed that operation.
+
+#### Waybill validation engine
+
+Implement a real validation function that compares the entered waybill fields against the associated transaction or expected delivery record.
+
+At minimum, check:
+
+1. The transaction reference exists.
+2. The customer matches the selected transaction.
+3. The waybill reference is not duplicated.
+4. The quantity or line-item details match the expected delivery record.
+5. Required waybill fields are present.
+6. The waybill has not already been accepted for another transaction.
+7. The transaction is in a status that permits waybill processing.
+
+Where the system does not have enough information to validate a field, mark it as "Not checked" rather than incorrectly declaring it valid.
+
+#### Discrepancy behaviour
+
+If a mismatch is found:
+
+- Display a prominent warning.
+- Identify the exact mismatched field.
+- Show the expected value and entered value where appropriate.
+- Set the validation status to "Requires review" or "Rejected".
+- Prevent the record from being silently accepted.
+- Record the validation result in the activity history.
+- Allow an authorised demo user to review and correct the data.
+- Require revalidation after correction.
+
+A valid waybill should be marked as "Validation passed" only after all required checks succeed.
+
+Do not claim that this rule-based validator detects every possible fraudulent or incorrect document. It only checks the defined fields and rules.
+
+#### Required demonstration scenario
+
+Seed a matching transaction and a corresponding valid waybill.
+
+Also seed a deliberate mismatch, such as a waybill with a different transaction reference or an incorrect quantity.
+
+During the demo, demonstrate both outcomes:
+
+- A matching waybill passes the defined checks.
+- A mismatched waybill generates a visible discrepancy alert.
+
+#### Optional OCR extension
+
+Structure the module so OCR or document extraction could be integrated later.
+
+Do not make OCR a requirement for the initial prototype unless the environment supports an actual working implementation.
+
+Explain that production OCR would need document-quality testing and, where necessary, human verification.
+
+---
+
+### 13. TICKETING AND CUSTOMER ISSUE MANAGEMENT
+
+Build an integrated ticketing module that demonstrates how Cooknow can manage complaints, requests, and operational problems.
+
+Each ticket should include:
+
+- Unique ticket reference.
+- Customer, if applicable.
+- Ticket category.
+- Subject.
+- Description.
+- Priority.
+- Status.
+- Assigned staff member.
+- Created date.
+- Last updated date.
+- Resolution notes.
+- Related transaction or delivery, where applicable.
+- Activity history.
+
+Suggested categories:
+
+- Customer complaint.
+- Delivery issue.
+- Inventory discrepancy.
+- Transaction issue.
+- General enquiry.
+- Internal operational request.
+- Other.
+
+Suggested priorities:
+
+- Low.
+- Normal.
+- High.
+- Urgent.
+
+Suggested statuses:
+
+- Open.
+- In progress.
+- Pending customer or external response.
+- Resolved.
+- Closed.
+
+#### Ticket functionality
+
+Implement:
+
+- Create ticket.
+- View ticket.
+- Edit permitted fields.
+- Assign or reassign staff.
+- Change priority.
+- Change status.
+- Add comments or activity notes.
+- Record resolution notes.
+- Search and filter tickets.
+- Display overdue or high-priority items using clearly defined demo rules.
+- View ticket history.
+
+Require appropriate information before marking a ticket resolved.
+
+Prevent a resolved ticket from being shown as open.
+
+Use consistent status transitions and update dashboard counts accordingly.
+
+#### Ticket dashboard
+
+Show:
+
+- Open tickets.
+- Tickets in progress.
+- Pending tickets.
+- Resolved tickets.
+- High-priority tickets.
+- Recently updated tickets.
+- Tickets grouped by category, status, or assigned staff.
+
+Allow users to open a ticket and inspect its details.
+
+#### Integration with other modules
+
+Where applicable, allow tickets to link to a customer, transaction, or delivery record.
+
+For example, a customer reporting a delayed delivery should be able to have a ticket linked to the relevant waybill.
+
+If a waybill validation discrepancy is detected, the application may offer to create a ticket for manual investigation.
+
+Do not automatically resolve tickets just because a related record changes unless an explicitly implemented business rule requires it.
+
+---
+
+### 14. REPORTS AND ANALYTICS
+
+Create a reports area with useful operational summaries.
+
+Include reports or filters for:
+
+- Inventory by status or category.
+- Low-stock items.
+- Stock movement history.
+- Supplier records and associated stock.
+- Transactions by date and status.
+- Transaction totals.
+- Delivery and waybill status.
+- Waybill validation failures.
+- Tickets by status.
+- Tickets by priority.
+- Tickets by category.
+- Tickets by assigned staff member.
+
+Allow the user to filter reports by a sensible date range or status where applicable.
+
+Where feasible, implement CSV export for tables and reports.
+
+Clearly distinguish the export of demo data from an integration with a live accounting or enterprise reporting system.
+
+All totals must be derived from the same data used by the operational modules.
+
+Do not hardcode report totals.
+
+---
+
+### 15. SETTINGS AND DEMONSTRATION CONTROLS
+
+Provide a settings area containing appropriate prototype settings.
+
+Include:
+
+- Demo company profile.
+- Currency display set to NGN.
+- Low-stock threshold behaviour.
+- Basic staff or role examples.
+- Demo data reset action.
+- About the prototype.
+- A clear list of features that are simulated or not connected.
+
+If reset is available, ask for confirmation before deleting demo changes.
+
+Do not represent a local demo role selector as secure production role-based access control.
+
+If role switching is implemented for demonstration, label it as a simulated permission view.
+
+Suggested demonstration roles:
+
+- Administrator.
+- Operations Manager.
+- Inventory Staff.
+- Customer Support Staff.
+
+Use the roles to demonstrate potential access differences only. Real authorisation must be enforced by a trusted backend in production.
+
+---
+
+### 16. GENERAL LEDGER INTEGRATION — FUTURE SCOPE
+
+Cooknow has asked about synchronisation with its general ledger.
+
+Do not invent an accounting platform or build a fake live integration.
+
+For the prototype:
+
+- Provide a clearly labelled "Accounting Integration — Planned" section or information panel.
+- Explain that the accounting software must be confirmed.
+- Show a conceptual mapping of an eligible transaction to a proposed accounting entry if useful.
+- Distinguish an illustrative preview from a posted ledger entry.
+- Do not display "Successfully synced" unless an actual integration exists and a real response confirms success.
+
+The future integration may require:
+
+- Confirmation of the accounting platform.
+- API or other supported access.
+- Mapping of accounts, taxes, transaction types, and references.
+- Idempotency to prevent duplicate postings.
+- Handling of failed synchronisations.
+- Reconciliation and audit trails.
+- Permissions and credentials management.
+- Testing against a sandbox or test environment.
+
+Do not implement a production general ledger integration in the initial prototype.
+
+---
+
+### 17. PAYMENT INTEGRATION — FUTURE SCOPE
+
+Cooknow has asked about payment-system options.
+
+For the prototype:
+
+- Display payment status on transactions.
+- Permit demo-only recording of payments.
+- Make it clear that no real payment has occurred.
+- Add a clearly labelled planned integration area if useful.
+
+Do not integrate live Paystack, Flutterwave, bank, card, or other payment services without explicit configuration and approval.
+
+A future production payment integration must include appropriate server-side verification, transaction references, secure handling of secrets, duplicate-event protection, error handling, and reconciliation.
+
+Never store card details or sensitive payment credentials in the prototype.
+
+---
+
+### 18. TELEPHONE CALL INTEGRATION — FUTURE SCOPE
+
+Cooknow is also considering calling customers from the ticketing system.
+
+For the initial prototype:
+
+- Show customer phone numbers on relevant customer and ticket screens.
+- If useful, provide a clearly labelled simulated call action.
+- Make it obvious that the demo does not initiate a real call.
+- Allow a demo user to record an illustrative call outcome or note if useful.
+
+Do not claim that calling works through the application unless an actual telephony provider is integrated.
+
+A future implementation may require a provider API, a supported calling interface, phone-number provisioning, permissions, call-status events, usage billing, and testing.
+
+Call recording should be considered separately, with applicable consent, privacy, security, and retention requirements addressed before production use.
+
+---
+
+### 19. SCALABILITY, HOSTING, AND OPERATIONS
+
+The prototype should illustrate a sensible path toward production without pretending production infrastructure has already been implemented.
+
+Use modular application architecture and typed data models.
+
+Document a possible production deployment approach, including:
+
+- Hosting.
+- Database.
+- Authentication.
+- File storage.
+- Backups.
+- Monitoring and error reporting.
+- Environment variables and secrets.
+- Data export and recovery.
+- Deployment and rollback.
+- Capacity planning.
+- Security updates.
+- Ongoing operational ownership.
+
+Do not hardcode production infrastructure or make unverified claims about unlimited scalability.
+
+For the demo, local persistence is acceptable if clearly disclosed.
+
+The production system will need an agreed hosting provider, an appropriate database, access control, reliable backups, monitoring, and operational procedures.
+
+Document that hosting, domain registration, email, file storage, OCR, telephony, payment processing, and other third-party usage costs may be separate from software development fees unless the final contract says otherwise.
+
+---
+
+### 20. DATA MODEL AND RELATIONSHIPS
+
+Create coherent data models for at least:
+
+- InventoryItem.
+- Supplier.
+- StockMovement.
+- Customer.
+- Transaction.
+- TransactionLineItem.
+- Receipt.
+- Waybill.
+- Delivery.
+- Ticket.
+- TicketComment or TicketActivity.
+- StaffUser or DemoUser.
+- ApplicationActivity.
+
+Add IDs and timestamps as appropriate.
+
+Define relationships such as:
+
+- An inventory item may be associated with a supplier.
+- A transaction belongs to a customer.
+- A transaction contains one or more line items.
+- A transaction can have a receipt.
+- A waybill is linked to an expected transaction or delivery record.
+- A ticket may be associated with a customer, transaction, or waybill.
+- A ticket contains comments and status-change history.
+- Stock movements refer to relevant inventory and transaction records.
+
+Use stable IDs rather than relying on display names as unique identifiers.
+
+Validate referential integrity within the prototype.
+
+Prevent orphaned relationships where practical.
+
+Implement a consistent approach to deleted or cancelled records. For important operational records, prefer a cancelled or archived status over silently deleting the record.
+
+---
+
+### 21. SEED DATA AND DEMONSTRATION SCENARIOS
+
+Populate the application with realistic but fictional sample data.
+
+Include at least:
+
+- 10 inventory items.
+- 4 suppliers.
+- 8 customers.
+- 12 transactions with varied statuses.
+- 6 waybills, including matching and mismatched cases.
+- 10 tickets with varied priorities and statuses.
+- Several stock movement records.
+- Enough dates and categories to populate charts and reports.
+
+Use fictional names, addresses, phone numbers, and email addresses. Avoid using actual Cooknow customer records.
+
+Include a prepared demonstration storyline:
+
+SCENARIO A — Inventory and sale:
+Register or inspect stock, select a customer, create a transaction, complete the appropriate workflow, and generate a receipt.
+
+SCENARIO B — Delivery:
+Open a transaction, enter waybill information, validate the reference and quantity, and demonstrate the result.
+
+SCENARIO C — Incorrect waybill:
+Submit a deliberately mismatched record and show the alert, expected values, review status, and correction process.
+
+SCENARIO D — Customer complaint:
+Create a ticket linked to the customer or delivery, assign it to a staff member, update the status, add a resolution note, and show the dashboard change.
+
+SCENARIO E — Management:
+Open the dashboard and reports to show how these operations affect the business summary.
+
+These scenarios must be runnable from the actual UI.
+
+---
+
+### 22. FUNCTIONALITY AND QUALITY REQUIREMENTS
+
+Every visible interactive control must do something meaningful.
+
+Do not leave:
+
+- Dead buttons.
+- Empty navigation items.
+- Fake save buttons.
+- Forms that do not validate.
+- Search boxes that do nothing.
+- Charts unrelated to the displayed data.
+- Status badges that cannot be updated through the intended workflow.
+- Actions that report success when the action failed.
+
+Implement appropriate:
+
+- Loading states when relevant.
+- Validation errors.
+- Success and failure messages.
+- Empty states.
+- Confirmation dialogs for destructive operations.
+- Disabled states for invalid actions.
+- Responsive tables and forms.
+- Keyboard-accessible controls.
+- Clear labels and useful error text.
+
+Avoid browser console errors, missing assets, broken routes, and TypeScript errors.
+
+Do not silently swallow exceptions.
+
+If an operation fails, explain what went wrong in a useful way.
+
+---
+
+### 23. SECURITY AND PRIVACY BOUNDARIES
+
+Even though this is a prototype, follow safe development practices.
+
+- Use fictional data.
+- Do not expose secrets.
+- Do not store passwords as plain text.
+- Do not claim demo authentication is production secure.
+- Validate user input.
+- Avoid rendering arbitrary uploaded HTML or executable files.
+- Handle uploaded files cautiously.
+- Do not upload customer documents to an external OCR service without explicit configuration and consent.
+- Do not integrate real bank accounts, live payment systems, production accounting systems, or telephony credentials.
+- Avoid implying that prototype data is backed up to a remote service when it is not.
+- Provide a clear demo-data reset mechanism.
+
+Document the security work still required before production deployment.
+
+---
+
+### 24. TESTING REQUIREMENTS
+
+Create and execute tests wherever the environment allows.
+
+At minimum, test the following business rules:
+
+1. Inventory items receive unique references.
+2. Invalid inventory quantities are rejected.
+3. Stock cannot be reduced below zero.
+4. Completing a transaction applies the intended stock movement once.
+5. Cancelling a completed transaction does not restore stock twice.
+6. Receipt totals match transaction totals.
+7. Waybills with matching required fields pass validation.
+8. Waybills with mismatched transaction references are flagged.
+9. Waybills with mismatched quantities are flagged.
+10. Duplicate waybill references are detected.
+11. Missing required waybill information is identified.
+12. Corrected waybills are revalidated.
+13. Tickets can be created, assigned, and updated.
+14. Resolved tickets no longer count as open.
+15. Dashboard metrics change when underlying records change.
+16. Report totals are derived from actual data.
+17. Demo data persists across refreshes if persistence is enabled.
+18. Resetting demo data requires confirmation.
+19. Search and filtering work.
+20. Receipt printing excludes the application navigation shell.
+
+If automated browser testing is available, test the main end-to-end scenarios.
+
+If you cannot run a test, do not claim it passed. Document what was tested, what was not tested, and any known issues.
+
+---
+
+### 25. PROJECT STRUCTURE AND IMPLEMENTATION
+
+Use a clear and maintainable folder structure.
+
+Separate:
+
+- Application routes or screens.
+- Reusable components.
+- Domain models and types.
+- Business logic.
+- Validation functions.
+- Data access and persistence.
+- Seed data.
+- Utilities.
+- Styles.
+- Tests.
+- Documentation.
+
+Avoid placing the entire application in one enormous source file unless the environment specifically requires a single-file artifact.
+
+Use modular components and shared form or table patterns.
+
+Do not create placeholder files solely to make the project appear complete.
+
+If you choose a backend, document how to configure and run it.
+
+If you choose local persistence, explain its limitations and the effect of browser storage being cleared.
+
+Provide environment-variable examples without real secrets.
+
+---
+
+### 26. DELIVERY PACKAGE
+
+Deliver the most complete result supported by your environment.
+
+The preferred deliverable is a runnable project directory or downloadable ZIP containing:
+
+1. Complete source code.
+2. Package manifest and lockfile where applicable.
+3. All required configuration.
+4. Seed data.
+5. Tests.
+6. README with setup and run instructions.
+7. Documentation of architecture and data models.
+8. Known limitations and production-readiness gaps.
+9. A demonstration script.
+10. A list of planned integrations.
+11. Example environment-variable configuration with placeholders only.
+12. A clear record of any features that are simulated rather than genuinely integrated.
+
+If the environment supports a live preview, provide it and verify that the application loads.
+
+If the environment supports downloadable artifacts, create the ZIP and provide its actual download link.
+
+Never invent a download link, preview URL, successful build, or test result.
+
+---
+
+### 27. README REQUIREMENTS
+
+Write a useful README explaining:
+
+- What the application demonstrates.
+- Technology stack.
+- Prerequisites.
+- Installation steps.
+- Development startup command.
+- Production build command, if applicable.
+- How to reset the demo data.
+- How persistence works.
+- Where seed data lives.
+- How to run tests.
+- Current prototype limitations.
+- Which integrations are not implemented.
+- How a production backend could replace prototype persistence.
+- How to deploy a demo, if deployment instructions can be verified.
+
+Provide copy-and-paste commands appropriate to the selected stack.
+
+Do not assume that the reader is an expert developer.
+
+---
+
+### 28. PRESENTATION SCRIPT FOR THE COOKNOW DEMONSTRATION
+
+Create a concise demonstration guide that FENUCS GROUP LTD can use when presenting the application.
+
+Suggested order:
+
+1. Introduce the Cooknow dashboard.
+2. Show current stock and business activity.
+3. Open an inventory item and explain its reference and status.
+4. Select a customer and demonstrate a transaction.
+5. Generate a receipt.
+6. Open the associated delivery record.
+7. Submit a valid waybill and show the validation result.
+8. Submit an incorrect waybill and show the discrepancy alert.
+9. Create a ticket for the delivery issue.
+10. Assign the ticket and record a resolution.
+11. Return to the dashboard and show updated metrics.
+12. Review reports.
+13. Explain which capabilities are working in the prototype and which require production integration.
+
+Keep the presentation focused on Cooknow's business problems rather than implementation jargon.
+
+---
+
+### 29. SCOPE CONTROL
+
+The following are in scope for the initial interactive prototype:
+
+- Dashboard.
+- Inventory and supplier management.
+- Customer management.
+- Transaction recording.
+- Receipt generation and browser printing.
+- Waybill and delivery records.
+- Rule-based waybill validation.
+- Ticketing.
+- Reporting.
+- Fictional seed data.
+- Cross-module interactions.
+- Responsive UI.
+- Local prototype persistence or another clearly documented demo persistence method.
+- Basic testing and setup documentation.
+
+The following are future production requirements unless a working implementation is specifically feasible and agreed:
+
+- Real general ledger synchronisation.
+- Real payment processing.
+- Real telephone calls from within the platform.
+- Production authentication and role-based authorisation.
+- Multi-branch or multi-company operation.
+- OCR services.
+- Automated emails or SMS.
+- Production-grade remote backups and monitoring.
+- Production hosting and domain configuration.
+- Advanced audit and compliance requirements.
+- Real-time multi-user collaboration.
+
+The prototype may contain clearly labelled concept panels for future integrations, but must not falsely present them as working.
+
+Do not expand scope indefinitely. Complete the agreed demonstration workflows first.
+
+---
+
+### 30. REQUIRED WORKING METHOD
+
+Follow this sequence:
+
+PHASE 1 — INSPECT AND PLAN
+- Inspect the environment and available tools.
+- Choose the simplest appropriate stack.
+- Define the data model and architecture.
+- List the planned screens and key interactions.
+- Record any assumptions.
+
+PHASE 2 — BUILD THE APPLICATION SHELL
+- Create the project.
+- Set up navigation, layout, styling, and responsive behaviour.
+- Create reusable controls and status indicators.
+
+PHASE 3 — IMPLEMENT BUSINESS MODULES
+- Implement inventory and suppliers.
+- Implement customers.
+- Implement transactions and receipts.
+- Implement waybills and validation.
+- Implement ticketing.
+- Implement dashboard and reports.
+- Implement settings and demo reset.
+
+PHASE 4 — CONNECT THE MODULES
+- Ensure transactions update stock.
+- Ensure receipts reflect transaction data.
+- Ensure waybills reference the correct transactions and customers.
+- Ensure tickets can link to relevant operational records.
+- Ensure dashboard metrics and reports reflect changes.
+
+PHASE 5 — TEST AND REPAIR
+- Run the application.
+- Run available checks and tests.
+- Exercise the demonstration scenarios.
+- Fix build errors, broken controls, and inconsistent data.
+- Verify the final preview or startup process.
+
+PHASE 6 — DOCUMENT AND DELIVER
+- Write the README.
+- Write the demonstration script.
+- Document simulated functionality and limitations.
+- Package the source code if supported.
+- Provide actual verified artifact links or a verified live preview if available.
+
+Do not stop after producing the plan. Continue through implementation and testing for as long as the environment permits.
+
+If a genuine blocker prevents a later phase, finish the remaining useful work and clearly state the blocker.
+
+---
+
+### 31. FINAL ACCEPTANCE CHECKLIST
+
+Before declaring completion, verify as much of the following as the environment supports:
+
+[ ] The application starts successfully.
+[ ] The main dashboard renders.
+[ ] All seven navigation areas open.
+[ ] Fictional seed data is visible.
+[ ] Inventory can be added and edited.
+[ ] Supplier records can be viewed and maintained.
+[ ] Customers can be added and searched.
+[ ] Transactions can be created.
+[ ] Stock changes follow the defined transaction rules.
+[ ] Receipts can be generated and printed.
+[ ] Waybills can be recorded.
+[ ] Correct waybills pass the defined validation checks.
+[ ] Incorrect waybills generate useful alerts.
+[ ] Duplicate references are detected.
+[ ] Tickets can be created, assigned, and resolved.
+[ ] Dashboard figures update when data changes.
+[ ] Reports reflect the same underlying records.
+[ ] The interface works at mobile and desktop widths.
+[ ] The demo environment is clearly labelled.
+[ ] Demo reset works safely.
+[ ] No live credentials or real customer data are exposed.
+[ ] Setup instructions are complete.
+[ ] Prototype limitations are documented.
+[ ] Any available tests have been run and their results reported.
+[ ] A runnable project, verified preview, or the best available complete deliverable is provided.
+
+---
+
+### 32. FINAL RESPONSE FORMAT
+
+When you finish, report:
+
+1. What you actually built.
+2. Which modules and workflows work.
+3. How to run the application.
+4. Where to access the preview, if one was successfully created.
+5. The actual download link, if a file was successfully created.
+6. The tests you actually ran and their results.
+7. Any known limitations or unresolved issues.
+8. What is required before production deployment.
+9. The suggested next step for presenting it to Cooknow.
+
+Be honest about what works and what remains simulated.
+
+Do not claim a feature, test, build, deployment, or download exists unless you have verified it.
+
+BEGIN NOW. Inspect your available environment, choose the most reliable implementation approach, and build the Cooknow prototype through to the most complete working deliverable your environment supports.

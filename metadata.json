@@ -1,0 +1,6 @@
+{
+  "name": "Cooknow Oil & Gas Business Management System",
+  "description": "Oil & Gas inventory lifecycle, customer audit reports, and synchronized ticketing system. Designed by FENUCS LTD.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
